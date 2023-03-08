@@ -1,5 +1,27 @@
 package com.java.sdpprojectay2.service.impl;
 
-public class UserServiceImpl {
-    
+import com.java.sdpprojectay2.model.UserPrincipal;
+import com.java.sdpprojectay2.model.entity.User;
+import com.java.sdpprojectay2.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    private UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findById(username).get();
+
+        System.out.println(user.getUsername() + " logging in...");
+        return new UserPrincipal(user);
+    }
 }
