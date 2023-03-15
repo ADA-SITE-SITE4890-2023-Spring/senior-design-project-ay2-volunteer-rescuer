@@ -1,14 +1,14 @@
 package com.java.sdpprojectay2.service;
 
-import com.example.mylibraryproject.model.entity.Book;
+import com.java.sdpprojectay2.model.entity.Report;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 public interface ReportService {
-    Report create(@RequestBody Report book);
+    Report create(@RequestBody Report report);
 
-    Report update(@RequestBody Report book);
+    Report update(@RequestBody Report report);
 
     List<Report> getAll();
 
