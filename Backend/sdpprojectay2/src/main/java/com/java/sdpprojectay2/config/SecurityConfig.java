@@ -26,10 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((authz) -> authz
-                        .anyRequest().authenticated()
-                )
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/otp/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .httpBasic(withDefaults());
     }
 

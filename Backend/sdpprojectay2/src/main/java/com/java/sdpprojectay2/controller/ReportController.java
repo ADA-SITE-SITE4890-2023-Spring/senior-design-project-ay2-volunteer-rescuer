@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/report")
 public class ReportController {
 
     private final ReportService reportService;
@@ -28,12 +28,12 @@ public class ReportController {
         return reportService.update(report);
     }
 
-    @GetMapping(value = "/reports")
+    @GetMapping(value = "/all")
     public List<Report> getAll() {
         return reportService.getAll();
     }
 
-    @GetMapping(value = "/reports/{id}")
+    @GetMapping(value = "/{id}")
     public Report getById(@PathVariable("id") Integer id) {
         return reportService.getById(id);
     }
