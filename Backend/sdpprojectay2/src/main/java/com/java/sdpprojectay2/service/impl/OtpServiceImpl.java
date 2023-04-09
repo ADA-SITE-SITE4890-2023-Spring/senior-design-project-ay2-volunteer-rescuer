@@ -4,14 +4,18 @@ import com.java.sdpprojectay2.model.dto.OtpCheckRequestDto;
 import com.java.sdpprojectay2.model.dto.OtpCheckResponseDto;
 import com.java.sdpprojectay2.model.dto.OtpCreateRequestDto;
 import com.java.sdpprojectay2.model.dto.OtpCreateResponseDto;
+import com.java.sdpprojectay2.model.dto.OtpHistoryCreateRequestDto;
+import com.java.sdpprojectay2.model.dto.OtpHistoryUpdateRequestDto;
+import com.java.sdpprojectay2.model.entity.OtpHistory;
+import com.java.sdpprojectay2.repository.OtpHistoryRepository;
 import com.java.sdpprojectay2.service.OtpService;
 import com.java.sdpprojectay2.service.SmsService;
+import java.util.Random;
+import java.util.UUID;
+import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.Random;
-import java.util.UUID;
 
 @Service
 @Slf4j
@@ -19,6 +23,7 @@ import java.util.UUID;
 public class OtpServiceImpl implements OtpService {
 
     private final SmsService smsService;
+    private final OtpHistoryRepository otpHistoryRepository;
 
 
     @Override
@@ -32,19 +37,47 @@ public class OtpServiceImpl implements OtpService {
         }
         var uuid = UUID.randomUUID().toString();
 
-        //TODO - create OtpHistory entity and save phone number, uuid and OTP to check it later
+        // create OtpHistory entity and save phone number, uuid and OTP to check it later
+        createOtpHistory(OtpHistoryCreateRequestDto.builder()
+                .otp(otp)
+                .phoneNumber(otpRequest.getPhoneNumber())
+                .uuid(uuid)
+                .build());
 
         log.info("details for otp check, uuid {} otp {}", uuid, otp);
         log.info("ActionLog.createOtp.end");
         return OtpCreateResponseDto.builder().uuid(uuid).build();
     }
 
+    private void checkOtpHistory(String otp, String uuid, String phoneNumber){
+        OtpHistory otpHistory = otpHistoryRepository
+                .findByUuid(uuid).orElseThrow(() -> new RuntimeException("OTP history not found"));
+
+        if (!otp.equals(otpHistory.getOtp())) {
+            log.error("OTP does not match for uuid: {}", uuid);
+            throw new RuntimeException("Invalid OTP");
+        }
+
+        if (!phoneNumber.equals(otpHistory.getPhoneNumber())) {
+            log.error("Phone number does not match for uuid: {}", uuid);
+            throw new RuntimeException("Invalid phone number");
+        }
+    }
+
+    private void createOtpHistory(OtpHistoryCreateRequestDto otpData) {
+        otpHistoryRepository.save(OtpHistory.builder()
+                .otp(otpData.getOtp())
+                .phoneNumber(otpData.getPhoneNumber())
+                .uuid(otpData.getUuid())
+                .build());
+    }
 
     @Override
     public OtpCheckResponseDto checkOtp(OtpCheckRequestDto otpCheckDto) {
         log.info("ActionLog.checkOtp.info code: {}, uuid: {}", otpCheckDto.getOtp(), otpCheckDto.getUuid());
 
-        //TODO - Check OTP is correct or not
+        // Check OTP is correct or not
+        checkOtpHistory(otpCheckDto.getOtp(), otpCheckDto.getUuid(), otpCheckDto.getPhoneNumber());
 
         return OtpCheckResponseDto.builder().success(true).build();
     }
