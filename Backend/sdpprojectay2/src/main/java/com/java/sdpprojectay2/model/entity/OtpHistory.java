@@ -1,5 +1,6 @@
 package com.java.sdpprojectay2.model.entity;
 
+import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class OtpHistory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String phoneNumber;
     private String otp;
-    private String uuid;
+    private UUID uuid;
+
 }

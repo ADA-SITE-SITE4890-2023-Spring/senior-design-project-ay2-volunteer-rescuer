@@ -2,6 +2,7 @@ package com.java.sdpprojectay2.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +19,5 @@ public class OtpCheckRequestDto {
     @ApiModelProperty(value = "Otp code which user enter in ui")
     private String otp;
     @ApiModelProperty(value = "To identify which user applied code")
-    private String uuid;
+    private UUID uuid;
 }

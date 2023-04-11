@@ -1,8 +1,7 @@
+
 package com.java.sdpprojectay2.model.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class OtpHistoryCreateRequestDto {
+
     private String phoneNumber;
     private String otp;
-    private String uuid;
+    private UUID uuid;
+
 }

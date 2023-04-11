@@ -2,6 +2,7 @@ package com.java.sdpprojectay2.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,5 @@ import lombok.NoArgsConstructor;
 @ApiModel(value = "Otp create response model")
 public class OtpCreateResponseDto {
     @ApiModelProperty(value = "To identify which user applied code")
-    private String uuid;
+    private UUID uuid;
 }

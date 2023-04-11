@@ -1,5 +1,7 @@
+
 package com.java.sdpprojectay2.model.dto;
 
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class OtpHistoryUpdateRequestDto {
+
     private String otp;
-    private String uuid;
+    private UUID uuid;
+
 }
