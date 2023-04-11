@@ -9,8 +9,10 @@ import com.java.sdpprojectay2.model.entity.OtpHistory;
 import com.java.sdpprojectay2.repository.OtpHistoryRepository;
 import com.java.sdpprojectay2.service.OtpService;
 import com.java.sdpprojectay2.service.SmsService;
+
 import java.util.Random;
 import java.util.UUID;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
