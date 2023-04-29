@@ -1,10 +1,7 @@
-package com.java.sdpprojectay2.controller;
+package com.java.sdpprojectay2.controller.admin;
 
-import com.java.sdpprojectay2.model.dto.OtpCheckRequestDto;
-import com.java.sdpprojectay2.model.dto.OtpCheckResponseDto;
-import com.java.sdpprojectay2.model.dto.OtpCreateRequestDto;
-import com.java.sdpprojectay2.model.dto.OtpCreateResponseDto;
-import com.java.sdpprojectay2.service.OtpService;
+import com.java.sdpprojectay2.dto.*;
+import com.java.sdpprojectay2.service.DaoOTP;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/otp")
+@RequestMapping("/mobile/volunteer-rescue-project/otp")
 @RequiredArgsConstructor
 @Api("Controller to handle OTP check and check")
 public class OtpController {
 
-    private final OtpService otpService;
+    private final DaoOTP otpService;
 
     @PostMapping("/create")
-    public OtpCreateResponseDto createOtp(@RequestBody OtpCreateRequestDto otpRequest) {
+    public Response createOtp(@RequestBody OtpCreateRequestDto otpRequest) {
         return otpService.createOtp(otpRequest);
     }
 
     @PostMapping("/check")
-    public OtpCheckResponseDto checkOtp(@RequestBody OtpCheckRequestDto otpCheckDto) {
+    public Response checkOtp(@RequestBody OtpCheckRequestDto otpCheckDto) {
         return otpService.checkOtp(otpCheckDto);
     }
 }

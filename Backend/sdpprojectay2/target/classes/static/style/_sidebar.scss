@@ -1,0 +1,58 @@
+#sidebar-center {
+
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 15%;
+    // border: 2px solid rgb(24, 147, 196);
+    background-color: #1c1f3f;
+    color: white;
+
+
+    .sidebar-content {
+        padding-top: 18vh;
+        display: flex;
+        justify-content: start;
+
+        ul{
+            padding-left: 0 !important;
+        }
+
+        .sidebar-menu-item {
+            width: 100%;
+            list-style: none;
+            padding: 5px 15px;
+
+            
+
+        }
+
+        .side-a {
+
+
+            padding: 10px 40px;
+            font-size: 1.2em;
+            width: 100%;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #DECB25;
+            transition: .3s ease-in;
+            display: flex;
+            justify-content: center;
+            &.active-item{
+                background-color: white;
+                color: #1c1f3f;
+            }
+
+            &:hover {
+                background-color: white;
+                color: black;
+
+        
+            }
+
+        }
+    }
+
+}

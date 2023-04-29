@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "media",
+      "type": "com.java.sdpprojectay2.config.MediaStorageProperties",
+      "sourceType": "com.java.sdpprojectay2.config.MediaStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "media.sounds-dir",
+      "type": "java.lang.String",
+      "sourceType": "com.java.sdpprojectay2.config.MediaStorageProperties"
+    },
+    {
+      "name": "media.upload-dir",
+      "type": "java.lang.String",
+      "sourceType": "com.java.sdpprojectay2.config.MediaStorageProperties"
+    }
+  ],
+  "hints": []
+}

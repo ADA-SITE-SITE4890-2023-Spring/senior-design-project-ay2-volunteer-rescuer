@@ -1,5 +1,5 @@
 HELP.md
-target/
+../../OneDrive/Documents/GitHub/senior-design-project-ay2-volunteer-rescuer/Backend/sdpprojectay2/src/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

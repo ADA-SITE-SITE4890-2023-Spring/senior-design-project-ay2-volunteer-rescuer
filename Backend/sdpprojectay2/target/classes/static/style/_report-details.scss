@@ -1,0 +1,165 @@
+#details-body {
+
+    width: 100%;
+    top: 120px;
+    position: relative;
+
+    .container80 {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+
+    #details-card {
+        width: 80%;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        padding-bottom: 50px;
+
+        #details-head {
+
+            padding: 5px 15px;
+            border-bottom: 1px solid #1c1f3f;
+            display: flex;
+            justify-content: space-between;
+
+
+            a{
+                text-decoration: none;
+                color: black;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+           
+        }
+
+        #details-card-body {
+            width: 100%;
+            // display: flex;
+            // justify-content: center;
+            padding-top: 15px;
+
+
+            // repo-images start here
+            .repo-images {
+                width: 100%;
+
+                .repo-images-head {
+
+                    text-align: center;
+                    border: 1px solid #1c1f3f;
+                    border-radius: 5px;
+                }
+
+                .repo-img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            // repo-images ends here
+
+
+
+
+            // repo--video-description starts here
+            .repo-video-description {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .repo-video {
+                    .repo-video-head {
+                        text-align: center;
+                        border: 1px solid #1c1f3f;
+                        border-radius: 5px;
+                    }
+                }
+
+
+                .repo-description {
+                    padding: 0px 20px;
+
+                    .repo-description-head {
+                        text-align: center;
+                        border: 1px solid #1c1f3f;
+                        border-radius: 5px;
+                    }
+
+                    p {
+                        font-size: 1em;
+                        padding-top: 15px;
+                    }
+                }
+            }
+
+            // repo--video-description ends here
+
+
+            .repo-audio {
+                padding-top: 10px;
+                .repo-audio-head {
+                    text-align: center;
+                    border: 1px solid #1c1f3f;
+                    border-radius: 5px;
+                }
+
+                audio{
+                    width: 100%;
+                    padding-top: 15px;
+                }
+            }
+
+            .repo-loc{
+                padding-top: 10px;
+                .repo-loc-head {
+                    text-align: center;
+                    border: 1px solid #1c1f3f;
+                    border-radius: 5px;
+                }
+
+                iframe{
+                    padding-top: 15px;
+                    width: 100%;
+                    height: 400px;
+                }
+            }
+
+
+            .repo-buttons{
+                display: flex;
+                justify-content: center;
+
+                #accepting, #rejecting{
+                    background-color: #1c1f3f;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    color: white;
+                    margin: 10px;
+                    border: none;
+                    transition: .3s ease-in-out;
+                }
+
+                #accepting{
+                    &:hover{
+                        background-color: green;
+                    }
+                }
+
+                #rejecting{
+                    &:hover{
+                        background-color: red;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

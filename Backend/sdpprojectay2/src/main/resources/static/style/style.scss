@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import '_header.scss';
+@import '_sidebar.scss';
+@import '_login.scss';
+@import '_maine.scss';
+@import '_profile.scss';
+@import '_report-details.scss';
+@import 'user-details.scss';
+@import '_report-edit.scss';
+@import 'create-account.scss';
+@import '_page404.scss';

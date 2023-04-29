@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="shortcut icon" href="img/emblem.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="vendors/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a href="index.html">
+                <img src="img/emblem.png" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img src="img/profile-unkown.jpg" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a href="profile.html"> Profile</a></li>
+                    <li>
+
+                        <form action=""></form>
+
+                        <a href="">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div id="profile-body">
+
+        <div class="container80">
+
+
+            <div class="profile-body-card">
+
+                <div class="card-header">
+                    <h3>Profile Picture</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="body-picture">
+                        <img src="img/profile-unkown.jpg" alt="">
+
+                    </div>
+
+                    <form action="">
+                        <input type="file" id="fileInput"></input>
+                        <button type="button" id="fileBtn">Upload new image</button>
+                        <br>
+                        <input type="submit" id="submitPic">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="profile-body-details">
+
+                <div class="details-card-header">
+                    <h3>Account Details</h3>
+                </div>
+
+                <div class="details-card-body">
+                    <form action="">
+
+                        <label for="inputFirstname">Firstname</label>
+                        <input type="text" id="inputFirstname">
+                        <label for="inputLastname">Lastname</label>
+                        <input type="text" id="inputLastname">
+                        <label for="inputEmail">Email</label>
+                        <input type="text" id="inputEmail">
+
+                        <label for="inputPassword">Password</label>
+                        <input type="text" id="inputPassword">
+
+                        <button type="button">Submit Changes</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/profileFile.js"></script>
+
+</body>
+
+</html>

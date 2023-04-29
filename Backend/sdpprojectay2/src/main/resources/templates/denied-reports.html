@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Təsdiqlənməmiş Müraciətlər</title>
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+
+
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{vendors/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+
+<body>
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a th:href="@{/index}">
+                <img th:src="@{img/emblem.png}" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a th:href="@{/profile(idUser=${user.getId()})}"> Hesab</a></li>
+                    <li>
+
+                        <!--                        <form action=""></form>-->
+
+                        <a th:href="@{/logout}">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div id="center-part">
+        <!-- sidebar -->
+        <div id="sidebar-center">
+            <div class="sidebar-content">
+                <ul>
+                    <li class="sidebar-menu-item">
+                        <a th:href="@{/index}" class="side-a">
+
+                            Ana Səhifə
+                        </a>
+
+                    </li>
+
+
+                    <li class="sidebar-menu-item">
+                        <a th:href="@{/users}" class="side-a ">
+
+                            İstifadəçilər
+                        </a>
+
+                    </li>
+
+                   
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="main-center">
+
+            <div id="center-inside">
+
+                <h2>Təsdiqlənməmiş Müraciətlər</h2>
+
+
+
+
+
+
+                <div class="inside-searchbar">
+                    <form th:action="@{/search-denied}" method="post" id="searchForm" th:object="${searchIndex}">
+                        <input th:value="${searchIndex !=null ? searchIndex : ''}" type="text" name="searchTerm" placeholder="Axtar..." id="searchInp">
+                        <button type="submit" id="searchBtn">Axtar</button>
+                    </form>
+                </div>
+
+                <div class="inside-table">
+
+
+                    <table class="table table-striped table-class" id="table-id">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>İstifadəçi</th>
+                                <th>Telefon Nömrəsi</th>
+                                <th>Tarix</th>
+                            </tr>
+
+
+
+                        </thead>
+
+
+                        <tbody>
+                        <tbody>
+                        <tr th:each="deniedDetails : ${emergencyDetails}">
+                            <td th:text="${deniedDetails.id}">
+
+                            </td>
+                            <td th:text="${deniedDetails.user.firstName} + ' ' + ${deniedDetails.user.lastName}">
+
+                            </td>
+
+                            <td th:text="'+'+${deniedDetails.user.phoneNumber}">
+
+                            </td>
+                            <td th:text="${#temporals.format(deniedDetails.createdDate, 'MMMM d, yyyy')}">
+
+                            </td>
+                            <td>
+                                <div class="btns">
+
+                                    <a th:href="@{/report-details(id=${deniedDetails.getId()})}"><i class="fas fa-file"></i></a>
+
+                                    <i class="fa-solid fa-pen-to-square" id="editBtnReport" th:onclick="openModal([[${deniedDetails.id}]])"></i>
+
+                                    <div  th:id="'reportModal-' + ${deniedDetails.id}">
+
+                                        <div class="modalHead">
+                                            <h2>Müraciətə Əlavələr</h2>
+                                            <div class="modalClose">
+                                                <button id="closeModalBtn"  th:onclick="closeModal([[${deniedDetails.id}]])">X</button>
+                                            </div>
+                                        </div>
+                                        <form th:object="${deniedReportDetailPanel}" th:action="@{/denied/reports/change/details(id=${deniedDetails.id})}" method="post">
+                                            <label for="reportNote">Qeyd:</label>
+                                            <br>
+                                            <textarea name="reportNote" id="reportNote" cols="50" rows="10" th:text="${deniedDetails.note}"></textarea>
+
+                                            <br>
+                                            <label for="checkAccept">Təsdiq:</label>
+                                            <select name="checkAccept" id="checkAccept">
+
+                                                <option th:each="op : ${isAcceptedOption.keySet()}" th:selected="${deniedDetails.status == op}" th:value="${op}" th:utext="${isAcceptedOption.get(op)}"></option>
+
+                                            </select>
+
+                                            <br>
+
+                                            <label for="checkResolved">Həll olunmuş:</label>
+                                            <select name="checkResolved" id="checkResolved">Ana Səhifə
+                                                İstifadəçilər
+
+
+                                                <option th:each="op : ${option.keySet()}" th:selected="${deniedDetails.isResolved() == op}" th:value="${op}" th:text="${option.get(op)}" ></option>
+
+                                            </select>
+
+                                            <br>
+
+                                            <label for="checkPriority" >Dərəcə:</label>
+                                            <select name="checkPriority" id="checkPriority">
+
+                                                <option th:each="e : ${priorities}" th:value="${e}" th:text="${e}" th:selected="${e == deniedDetails.priority}"></option>
+                                            </select>
+
+                                            <br>
+                                            <button>Əlavə et</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+                            
+
+
+
+                        </tbody>
+
+                    </table>
+
+
+
+                    <div class="pagination">
+                        <ul class="pagination-list"></ul>
+                    </div>
+
+                </div>
+
+
+
+            </div> <!-- 		End of Container -->
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <script th:src="@{vendors/jquery-3.6.4.js}"></script>
+    <script th:src="@{scripts/main.js}"></script>
+    <script th:src="@{scripts/profile.js}"></script>
+    <script th:src="@{scripts/reportDetails.js}"></script>
+
+</body>
+
+</html>

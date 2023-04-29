@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstifadəçi Məlumatları</title>
+
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+    <link rel="stylesheet" th:href="@{vendors/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+
+<body>
+
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a th:href="@{/index}">
+                <img th:src="@{img/emblem.png}" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a th:href="@{/profile(idUser=${user.getId()})}"> Hesab</a></li>
+                    <li>
+
+                        <!--                        <form action=""></form>-->
+
+                        <a th:href="@{/logout}">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <div id="user-details-body">
+
+        <div class="container80">
+
+
+            <div class="user-details-inside">
+
+                <div class="details-card-header">
+                    <h3>İstifadəçi Məlumatları</h3>
+                </div>
+
+                <div class="details-card-body">
+                    <form action="">
+
+                        <label for="inputFirstname">Ad</label>
+                        <input type="text" id="inputFirstname" readonly th:placeholder="${userDetails.firstName}">
+                        <label for="inputLastname">Soyad</label>
+                        <input type="text" id="inputLastname" readonly th:placeholder="${userDetails.lastName}">
+                        <label for="inputPhone" >Telefon Nömrəsi</label>
+                        <input type="tel" id="inputPhone" readonly th:placeholder="'+' + ${userDetails.phoneNumber}">
+                        <label for="inputGender">Cins</label>
+                        <input type="datetime" id="inputGender" readonly th:if="${userDetails.gender == 1}" th:placeholder="Kişi">
+                        <input type="datetime" id="inputGender" readonly th:if="${userDetails.gender == 2}" th:placeholder="Qadın">
+                        <label for="inputDOB">Doğum Tarixi</label>
+                        <input type="datetime" id="inputDOB" readonly th:placeholder="${#temporals.format(userDetails.birthDate, 'MMMM d, yyyy')}">
+
+                    </form>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script th:src="@{scripts/profile.js}"></script>
+    <script th:src="@{scripts/profileFile.js}"></script>
+    <script th:src="@{vendors/jquery-3.6.4.js}"></script>
+    <script th:src="@{scripts/main.js}"></script>
+    <script th:src="@{scripts/profile.js}"></script>
+
+</body>
+
+</html>

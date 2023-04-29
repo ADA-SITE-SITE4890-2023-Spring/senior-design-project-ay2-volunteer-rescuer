@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accepted Reports</title>
+    <link rel="shortcut icon" href="/static/img/emblem.png" type="image/x-icon" th:href="@{/img/emblem.png}">
+
+    <link rel="stylesheet" href="/static/vendors/bootstrap.css" th:href="@{/vendors/bootstrap.css}">
+    <link rel="stylesheet" href="/static/style/style.css" th:href="@{/style/style.css}">
+</head>
+
+<body>
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a href="index.html">
+                <img src="" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img src="/static/img/profile-unkown.jpg"  th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a href="profile.html"> Profile</a></li>
+                    <li>
+
+                        <form action=""></form>
+
+                        <a href="">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div id="center-part">
+        <!-- sidebar -->
+        <div id="sidebar-center">
+            <div class="sidebar-content">
+                <ul>
+                    <li class="sidebar-menu-item">
+                        <a href="index.html" class="side-a">
+
+                            Dashboard
+                        </a>
+
+                    </li>
+
+
+                    <li class="sidebar-menu-item">
+                        <a href="volunteer.html" class="side-a ">
+
+                            Users
+                        </a>
+
+                    </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="" class="side-a">
+
+                            Announcements
+                        </a>
+
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="main-center">
+
+            <div id="center-inside">
+
+                <h2>Accepted Reports</h2>
+
+
+
+                
+
+
+                <div class="inside-searchbar">
+                    <form action="/search" method="get" id="searchForm">
+                        <input type="text" name="query" placeholder="Search..." id="searchInp">
+                        <button type="submit" id="searchBtn">Search</button>
+                    </form>
+                </div>
+
+                <div class="inside-table">
+
+
+                    <table class="table table-striped table-class" id="table-id">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Volunteer</th>
+                                <th>Location</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                            </tr>
+
+
+
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="emergencyDetail : ${emergencyDetails}">
+                                <td th:text="${emergencyDetail.id}">
+                                    <a href="#" ></a>
+                                </td>
+                                <td th:text="${emergencyDetail.user.firstName} + ' ' + ${emergencyDetail.user.lastName}">
+                                    <a href="#" ></a>
+                                </td>
+                                <td  th:text="${emergencyDetail.latitude} + ', ' + ${emergencyDetail.longitude}">
+                                    <a href="#">Baku</a>
+                                </td>
+                                <td>
+                                    <a href="#" th:text="${emergencyDetail.user.phoneNumber}"></a>
+                                </td>
+                                <td th:text="${emergencyDetail.createdDate}">
+                                    <a href="#"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                
+                    <div class="pagination">
+                        <ul class="pagination-list"></ul>
+                    </div>
+                      
+                </div>
+
+
+
+            </div> <!-- 		End of Container -->
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <script src="/static/vendors/jquery-3.6.4.js" th:src="@{/vendors/jquery-3.6.4.js}"></script>
+    <script src="/static/scripts/main.js" th:src="@{/scripts/main.js}"></script>
+    <script src="/static/scripts/profile.js" th:src="@{/scripts/profile.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+#center-part {
+    position: relative;
+    width: 100%;
+    display: flex;
+    top: 80px;
+}
+
+// sidebar
+
+
+#main-center {
+    // position: relative;
+    // border: 5px solid green;
+    // height: 100vh;
+    width: 85%;
+    right: 0;
+    position: absolute;
+
+    #center-inside {
+        padding-top: 7vh;
+        width: 90%;
+        margin: auto;
+
+
+        .inside-boxes {
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0 40px 0;
+
+            .box-in {
+
+                width: 23%;
+                height: 120px;
+                display: block;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border-top: 4px solid #1c1f3f;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+
+                // padding: 10px 10px;
+                text-decoration: none;
+                color: #000;
+                position: relative;
+
+                .box-head{
+                    position: absolute;
+                    top: 0;
+                    left: 10px;
+                }
+                .box-bottom {
+                    // padding-top: 20px;
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    .bottom-span {
+                        font-size: 2em !important;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+
+
+
+
+        }
+
+
+        .inside-searchbar {
+            width: 100%;
+            // height: 20vh;
+            // border: 1px solid red;
+
+            // margin-top: 40px;
+
+            #searchForm {
+                // width: 80%;
+                display: flex;
+                // justify-content: space-between;
+            }
+
+            #searchInp {
+                width: 95%;
+                padding: 5px 20px;
+                outline: none;
+                border: 1px solid #1c1f3f;
+            }
+
+            #searchBtn {
+                padding: 5px 15px;
+                background-color: #1c1f3f;
+                color: white;
+                border: none;
+
+            }
+        }
+
+        .inside-table {
+
+            padding-top: 30px;
+        }
+
+
+        .container {
+            width: 100%;
+            border: 1px solid red;
+        }
+
+        table th,
+        table td {
+            text-align: center;
+        }
+
+        table td {
+            position: relative;
+            color: black;
+
+            a{
+                display: block;
+                text-decoration: none;
+                color: #1c1f3f;
+            }
+            .btns{
+                display: flex;
+                justify-content: center;
+                a{
+                    display: inline;
+                    text-decoration: none;
+                    color: #1c1f3f;
+                }
+
+                i{
+                    display: inline;
+                    padding-left: 10px;
+                    padding-top: 5px;
+                    font-size: 1em;
+                    cursor: pointer;
+                }
+            }
+
+            #reportModal{
+                position: absolute;
+                z-index: 99;
+                width: 500px;
+                height: 500px;
+                right: 400px;
+                top: -100px;
+                border: 1px solid #1c1f3f;
+                border-radius: 5px;
+                background-color: white;
+                text-align: center;
+                display: none;
+        
+                .modalHead{
+                    border-bottom: 1px solid #1c1f3f;
+                    position: relative;
+
+                    .modalClose{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+
+                        button{
+                            margin-top: 5px;
+                        }
+                    }
+                }
+                label{
+                    font-size: 1.2em;
+                }
+                textarea{
+                    resize: none;
+                    border: 1px solid #1c1f3f;
+                    padding: 5px ;
+                }
+        
+                button{
+                    border: none;
+                    color: white;
+                    margin-top: 15px;
+                    padding: 5px 10px;
+                    background-color: #1c1f3f;
+                }
+            }
+
+          
+        }
+
+        table tr:nth-child(even) {
+
+            background-color: #1c1f3f;
+
+            td {
+                color:white;
+                a {
+                    color: white;
+
+                }
+                #reportModal {
+                    color: #1c1f3f;
+                }
+                button {
+                    background-color: #F2F2F2;
+                    color: #1c1f3f;
+                    a {
+                        color: #1c1f3f;
+    
+                    }
+                }
+            }
+        }
+
+        .pagination {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .pagination-list {
+                display: flex;
+                list-style: none;
+
+                li {
+
+                    .prev-button.disabled,
+                    .next-button.disabled {
+                        pointer-events: none;
+                        opacity: 0.5;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: #1c1f3f;
+                        padding: 5px;
+                        margin: 2px;
+                        border: 1px solid #DECB25;
+
+                        &.active {
+                            background-color: #1c1f3f;
+                            color: #fff;
+                        }
+                    }
+
+
+
+                }
+            }
+        }
+
+
+    }
+
+
+}
+
+
+
+

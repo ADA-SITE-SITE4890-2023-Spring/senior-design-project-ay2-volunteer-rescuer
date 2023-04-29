@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in page</title>
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+
+    <!-- <link rel="stylesheet" href="vendors/bootstrap.css"> -->
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+
+<body>
+
+
+    <div id="login-main">
+
+        <div class="login-main-inside">
+
+            <div class="inside-top">
+                <h1>Login</h1>
+            </div>
+
+            <div class="inside-bottom">
+                <form th:action="@{/login}" method="POST" id="loginForm" target="_blank" th:object="${login}">
+                    <input th:value="${login.getEmail()}" type="email" placeholder="Email" id="email" name="email">
+
+                    <input th:value="${login.getPassword()}" type="password" placeholder="Password" id="password" name="password">
+
+                    <input type="submit" class="submitInput" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

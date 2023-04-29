@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesab</title>
+
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+    <link rel="stylesheet" th:href="@{vendors/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+
+<body>
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a th:href="@{/index}">
+                <img th:src="@{img/emblem.png}" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a th:href="@{/profile(idUser=${user.getId()})}"> Hesab</a></li>
+                    <li>
+
+                        <!--                        <form action=""></form>-->
+
+                        <a th:href="@{/logout}">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <div id="profile-body">
+
+        <div class="container80">
+
+
+
+            <div class="profile-body-details">
+
+                <div class="details-card-header">
+                    <h3>Hesab Məlumatları</h3>
+                </div>
+
+                <div class="details-card-body">
+                    <form th:action="@{/profile-update?idUser=1}" th:object="${userProfileDto}" method="post">
+
+                        <label for="inputFirstname">Ad</label>
+                        <input th:value="${profile.getFirstName()}" type="text" id="inputFirstname" name="inputFirstname">
+                        <label for="inputLastname">Soyad</label>
+                        <input th:value="${profile.getLastName()}" type="text" id="inputLastname" name="inputLastname">
+                        <label for="inputEmail">E-poçt ünvanı</label>
+                        <input th:value="${profile.getEmail()}" type="text" id="inputEmail" name="inputEmail">
+
+                        <label for="inputPassword">Şifrə</label>
+                        <input th:value="${profile.getPassword()}" type="password" id="inputPassword" name="inputPassword">
+
+                        <button>Dəyişiklikləri saxla</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+            <div class="container80">
+                <a th:if="${user.getIdGroup() == 1}" th:href="@{/create-account}">
+
+                    <div class="profile-make-acc">
+
+                        <h3>İşçi hesabı yarat</h3>
+
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <script th:src="@{scripts/profile.js}"></script>
+<!--    <script th:src="@{scripts/profileFile.js}"></script>-->
+
+</body>
+
+</html>

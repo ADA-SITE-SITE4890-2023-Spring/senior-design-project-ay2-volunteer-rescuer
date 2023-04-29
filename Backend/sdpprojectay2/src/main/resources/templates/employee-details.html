@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İşçi Məlumatları</title>
+
+    <link rel="shortcut icon" href="img/emblem.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="vendors/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+
+
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a href="index.html">
+                <img src="img/emblem.png" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img src="img/profile-unkown.jpg" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a href="profile.html"> Hesab</a></li>
+                    <li>
+
+                        <form action=""></form>
+
+                        <a href="">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <div id="user-details-body">
+
+        <div class="container80">
+
+
+            <div class="user-details-inside">
+
+                <div class="details-card-header">
+                    <h3>İşçi Məlumatları</h3>
+                </div>
+
+                <div class="details-card-body">
+                    <form action="">
+
+                        <label for="inputFirstname">Ad</label>
+                        <input type="text" id="inputFirstname" readonly>
+                        <label for="inputLastname">Soyad</label>
+                        <input type="text" id="inputLastname" readonly >
+                        <label for="inputEmail">E-poçt ünvanı</label>
+                        <input type="email" id="inputEmail" readonly>
+                        <label for="inputAdminID">Admin</label>
+                        <input type="text" id="inputAdminID" readonly>
+                        <label for="inputActive">Aktivlik</label>
+                        <input type="text" id="inputActive" readonly>
+
+
+                    </form>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="container80">
+
+            <!-- based on activity of the account show one of the buttons -->
+            <button id="activateAccount">
+                Hesabı aktivləşdirin
+            </button>
+            <!-- <button id="deActivateAccount">
+                Hesabı deaktivləşdirin
+            </button> -->
+        </div>
+
+
+    </div>
+
+
+
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/profileFile.js"></script>
+
+</body>
+
+</html>

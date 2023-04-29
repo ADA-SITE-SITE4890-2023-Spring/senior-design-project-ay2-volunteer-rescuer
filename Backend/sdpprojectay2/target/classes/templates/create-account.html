@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İçşi Hesabı Yarat</title>
+
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" th:href="@{vendors/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+<body>
+    
+
+
+    
+   
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a th:href="@{/index}">
+                <img th:src="@{img/emblem.png}" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a th:href="@{/profile(idUser=${user.getId()})}"> Hesab</a></li>
+                    <li>
+
+                        <!--                        <form action=""></form>-->
+
+                        <a th:href="@{/logout}">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="create-account-body">
+        <div class="container80">
+
+
+
+            <div class="create-body-details">
+
+                <div class="create-card-header">
+                    <h3>İşçi Hesabı Yarat</h3>
+                </div>
+
+                <div class="create-card-body">
+                    <form th:action="@{/create-account-save}" method="post">
+
+                        <label for="inputFirstname">Ad</label>
+                        <input type="text" id="inputFirstname" name="inputFirstname">
+                        <label for="inputLastname">Soyad</label>
+                        <input type="text" id="inputLastname" name="inputLastname">
+                        <label for="inputEmail">E-poçt ünvanı</label>
+                        <input type="text" id="inputEmail" name="inputEmail">
+
+                        <label for="inputPassword">Şifrə</label>
+                        <input type="password" id="inputPassword" name="inputPassword">
+
+                        <button>Yarat</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+
+    <script th:src="@{scripts/profile.js}"></script>
+
+</body>
+</html>

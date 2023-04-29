@@ -1,0 +1,18 @@
+#report-inside{
+    top: 80px;
+    position: relative;
+
+    #report-details{
+        width: 85%;
+        position: absolute;
+        right: 0;
+
+
+        #details-inside{
+            padding-top: 7vh;
+            width: 90%;
+            margin: auto;
+
+        }
+    }
+}

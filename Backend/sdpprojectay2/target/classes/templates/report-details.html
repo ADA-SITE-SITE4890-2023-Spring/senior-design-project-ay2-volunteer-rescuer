@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müraciət Məlumatları</title>
+    <link rel="shortcut icon" th:href="@{img/emblem.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+    <link rel="stylesheet" th:href="@{vendors/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{style/style.css}">
+</head>
+
+<body>
+
+    <!-- HEADER starts here -->
+    <header id="header-maine">
+
+        <div class="header-log">
+            <a th:href="@{/index}">
+                <img th:src="@{img/emblem.png}" alt="">
+
+            </a>
+        </div>
+
+
+        <div class="header-cent">
+            <h1>Volunteer Rescuer</h1>
+        </div>
+
+
+        <div class="header-prof">
+            <div id="prof-round">
+                <img th:src="@{img/profile-unkown.jpg}" alt="">
+            </div>
+
+            <div id="round-inside">
+
+                <ul>
+                    <li><a th:href="@{/profile(idUser=${user.getId()})}"> Hesab</a></li>
+                    <li>
+
+                        <!--                        <form action=""></form>-->
+
+                        <a th:href="@{/logout}">Çıxış <i class="fa fa-sign-out" style="font-size:20px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- HEADER ends here -->
+
+
+
+    <div id="details-body">
+        <div class="container80">
+
+
+            <div id="details-card">
+                <div id="details-head">
+                    <!-- xxx should be replaced with the ID of the Report -->
+                    <!-- Datetime should be replaced with the real time of report submission -->
+                    <!-- The user who reported should be shown inside the last h3 element,
+                        name should be replaced with username and link to his profile
+                        details should be replaced accordingly -->
+                    <h3 th:text="'Report №'+ ${emergencyDetails.getId()}">Report № xxx</h3>
+                    <h3 th:text="${#temporals.format(emergencyDetails.getCreatedDate(), 'dd/MM/yyyy HH:mm:ss')}">Datetime</h3>
+
+                    <h3>
+                        <a th:text="${emergencyDetails.getUser().getFirstName()} + ' ' + ${emergencyDetails.getUser().getLastName()}" th:href="@{/users-details(id=${emergencyDetails.getUser().getId()})}">Username</a> </h3>
+                </div>
+
+                <div id="details-card-body">
+
+                    <div class="repo-images">
+
+                        <div class="repo-images-head">
+                            <h3>Şəkillər</h3>
+                        </div>
+                        <div class="repo-images-display">
+                            <div class="repo-images-display-inside" th:each="i : ${images}">
+                            <img class="repo-img" th:src="@{${i}}" alt="">
+    <!--                        <img class="repo-img" th:src="@{img/Image_not_available.png}" alt="">-->
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- video, written description and audio description of report is stored here -->
+                    <div class="repo-video-description">
+
+                        <div class="repo-video">
+                            <div class="repo-video-head">
+                                <h3>Video</h3>
+                            </div>
+                            <video th:attr="src=@{${video}}" width="400" height="400" controls>
+<!--                                <source th:attr="src=@{${video}}" type="video/mp4">-->
+
+                                Video not available
+                            </video>
+                        </div>
+
+                        <div class="repo-description">
+                            <div class="repo-description-head">
+                                <h3>Təsvir</h3>
+                            </div>
+
+                            <p th:text="${emergencyDetails.getDescription()}"></p>
+
+
+                            <div class="repo-audio">
+
+                                <div class="repo-audio-head">
+                                    <h3>Səs yazısı</h3>
+                                </div>
+                                <audio th:attr="src=@{${emergencyDetails.getVoiceRecord()}}" controls>
+<!--                                    <source src="">-->
+                                </audio>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="repo-loc">
+
+                        <div class="repo-loc-head">
+                            <h3>Ünvan</h3>
+                        </div>
+                        <iframe th:attr="src=@{${emergencyDetails.getLocation()}}"
+                            style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="repo-buttons">
+                        <form th:action="@{/report-status(id=${emergencyDetails.getId()}, status=2)}" method="post">
+                        <button id="accepting">Təsdiqlə</button>
+                        </form>
+                        <form th:action="@{/report-status(id=${emergencyDetails.getId()}, status=3)}" method="post">
+                        <button id="rejecting">Təsdiqləmə</button>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script th:src="@{scripts/profile.js}"></script>
+</body>
+
+</html>

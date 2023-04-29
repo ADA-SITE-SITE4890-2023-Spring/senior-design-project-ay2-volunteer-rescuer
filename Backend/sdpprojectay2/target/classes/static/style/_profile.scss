@@ -1,0 +1,163 @@
+#profile-body {
+
+    width: 100%;
+    top: 120px;
+    position: relative;
+
+    .container80 {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+
+    .profile-left {
+        width: 25%;
+
+        .profile-body-card {
+            width: 100%;
+            position: relative;
+            // display: block;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+            .card-header {
+                padding: 5px 15px;
+                border-bottom: 1px solid #1c1f3f;
+            }
+
+
+            .card-body {
+
+                text-align: center;
+
+                padding-bottom: 15px;
+
+                .body-picture {
+                    img {
+                        border-radius: 50%;
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+
+                #fileInput {
+                    display: none;
+                }
+
+                button {
+                    padding: 10px 15px;
+                    background-color: #1c1f3f;
+                    border: none;
+                    border-radius: 5px;
+                    // align-items: center;
+                    color: white;
+                }
+
+                #submitPic {
+                    background-color: #1c1f3f;
+                    margin-top: 10px;
+                    padding: 5px 15px;
+                    color: white;
+                    border-radius: 5px;
+
+                }
+
+
+            }
+        }
+
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+
+
+            .profile-make-acc {
+                margin-top: 50px;
+                width: 100%;
+                position: relative;
+                // display: block;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+                padding: 5px 15px;
+
+            }
+        }
+
+    }
+
+
+
+    .profile-body-details {
+        width: 70%;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        // height: 50vh;
+        padding-bottom: 50px;
+
+        .details-card-header {
+            padding: 5px 15px;
+            border-bottom: 1px solid #1c1f3f;
+
+        }
+
+
+
+        .details-card-body {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+
+            form {
+                width: 60%;
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                float: left;
+                text-align: left;
+                clear: left;
+            }
+
+            input {
+                display: block;
+                padding: 5px 15px;
+                margin: 10px 0;
+                width: 100%;
+                border: 1px solid #DECB25;
+                outline: none;
+                caret-color: #1c1f3f;
+            }
+
+            button {
+                padding: 10px;
+                background-color: #1c1f3f;
+                border: none;
+                border-radius: 5px;
+                align-items: center;
+                color: white;
+                display: inline-block;
+
+            }
+        }
+    }
+
+
+
+}
